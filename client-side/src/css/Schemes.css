@@ -1,0 +1,100 @@
+
+  .schemes {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    padding: 10px;
+    gap: 15px;
+    scroll-behavior: smooth; 
+  }
+  .schemes::-webkit-scrollbar {
+    display: none;
+}
+  .scroll-card {
+    flex: 0 0 auto;
+    width: 300px; 
+    margin: 10px;
+    white-space: normal; 
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .scroll-content {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    overflow: hidden;
+  }
+  
+  
+  .scroll-card .card-body { 
+    max-height: 350px;
+    overflow-y: auto;
+  
+  }
+  /* .scroll-card ::-webkit-scrollbar {
+    display: none;
+} */
+  
+  
+  .scroll-card .list-group-item {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: 14px; 
+  }
+  
+  
+  .link-style {
+    text-decoration: none;
+    color: white;
+  }
+  
+ 
+  @media (max-width: 768px) {
+    .schemes {
+      width: 95%;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+  
+    .scroll-card {
+      width: 90%;
+    }
+  }
+  
+  
+  @media (max-width: 320px) {
+    .schemes {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .scroll-card {
+      width: 280px;
+      margin: 0px;
+    }
+  }
+  @media (min-width: 321px) and (max-width:375px) {
+    .schemes {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .scroll-card {
+      width: 320px;
+    }
+  }
+
+  @media (min-width: 376px) and (max-width:425px) {
+    .schemes {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .scroll-card {
+      width: 355px;
+    }
+  }
+  
+  

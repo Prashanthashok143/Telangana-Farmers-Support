@@ -1,0 +1,13 @@
+.nav-logo{
+    width: 10%;
+    /* height: 35%; */
+}
+@media only screen and (min-width: 1024px){
+
+    .nav-logo{
+        width: 5%;
+        
+    }
+}
+
+

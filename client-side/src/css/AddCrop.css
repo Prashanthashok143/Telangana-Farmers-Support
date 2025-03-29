@@ -1,0 +1,51 @@
+.Form{
+    display: flex;
+    flex-wrap:wrap;
+    margin: 25px;
+
+}
+
+
+.Field{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+@media screen and (max-width:767px) {
+    .FormFeilds{
+        flex: 100%;
+       
+    }
+}
+@media screen and (min-width:768px) and (max-width:1023px) {
+   .Form{
+        margin-left: 125px
+    }
+    .FormFeilds{
+        flex: 50%;
+    }
+    .Field{
+        width: 200px;
+    } 
+}
+
+
+@media screen and (min-width:1024px) {
+    .Form{
+        width: 800px;
+        margin-left: 20%;
+    }
+    .Field{
+        width: 200px;
+        margin: 2px;
+    }
+    .FormFeilds{
+        flex: 25%;
+       
+    }
+    .btn{
+        margin-top: 20px;
+        margin-right: 65px;
+        height: 40px;
+    }
+}

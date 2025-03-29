@@ -1,0 +1,90 @@
+.Crops{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  padding: 10px;
+  gap: 15px;
+  scroll-behavior: smooth; 
+}
+/* .Card{
+    flex: 33.3%;
+} */
+.Crops::-webkit-scrollbar {
+  display: none;
+}
+.Card{
+  flex: 0 0 auto;
+    width: 300px; 
+    margin: 10px;
+    white-space: normal; 
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.content{
+  display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    overflow: hidden;
+}
+.Card .card-body { 
+  max-height: 350px;
+  overflow-y: auto;
+
+}
+/* .Card ::-webkit-scrollbar {
+  display: none;
+} */
+.Card .list-group-item {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: 14px; 
+}
+/* takes upto Large Mobile*/
+@media (max-width: 768px) {
+  .Crops {
+    width: 95%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .Card {
+    width: 90%;
+  }
+}
+
+
+@media (max-width: 320px) {
+  .Crops {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .Card{
+      
+    width: 250px;
+    margin: 0px;
+  }
+}
+@media (min-width: 321px) and (max-width:375px) {
+  .Crops {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .Card {
+    width: 280px;
+  }
+}
+
+@media (min-width: 376px) and (max-width:425px) {
+  .Crops {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .Card {
+    width: 335px;
+  }
+}
+

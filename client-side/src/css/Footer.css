@@ -1,0 +1,36 @@
+.list{
+  list-style-type: none;
+}
+li a{
+  text-decoration: none;
+}
+.footer-container{
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 20px;
+  text-align: left;
+  background-color:black;
+  color: white;
+}
+
+
+
+@media (min-width: 768px) {
+  .Quick-Links, .Contact-US,.Social-icons {
+    flex: 25%;
+  }
+}
+@media screen and (min-width:320px) and (max-width:767px){
+  .Quick-Links, .Contact-US,.Social-icons {
+    flex: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+

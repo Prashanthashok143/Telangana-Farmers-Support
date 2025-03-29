@@ -1,0 +1,35 @@
+.MarketRates-nav{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.fliters{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.filter-child{
+    flex:100%;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.Addmp-btn{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.range{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+@media screen and (max-width:767px) {
+    .MarketRates-nav{
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .filter-child{
+        flex:20%;
+        margin: 0;
+    }
+}

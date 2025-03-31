@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const mongoURI = process.env.MONGODB_URI || "mongodb://localhost:27017/telangana_farmers";
+const mongoURI = process.env.MONGODB_URI || "mongodb+srv://prashanthashok143:<db_password>@cluster0.lqicfqy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 exports.dbConnect = () => {
   mongoose
     .connect(mongoURI)

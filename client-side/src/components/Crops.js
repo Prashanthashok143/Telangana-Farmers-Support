@@ -1,12 +1,14 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import "../css/Crops.css"
 import { useNavigate } from "react-router-dom";
 import {  Container } from "react-bootstrap";
 import { Button } from "antd";
+import { AuthProvider } from "../App";
 const Crops = () => {
+    const {authenticate}=useContext(AuthProvider)
   const navigate=useNavigate();
   const [data, setData] = useState([]);
   const [load,setLoad]=useState(true);
@@ -36,7 +38,12 @@ const Crops = () => {
   return (
     <>
     <div className="d-flex justify-content-end">
-      <button className="btn btn-danger" onClick={AddCrop}>ADD</button>
+      
+        {
+                authenticate &&       <button className="btn btn-danger" onClick={AddCrop}>ADD</button>
+              }
+      
+     
     </div>
     <div className="m-3 Crops">
       {data?.length > 0 &&

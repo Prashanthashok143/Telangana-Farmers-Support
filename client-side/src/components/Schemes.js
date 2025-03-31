@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import {  Link } from "react-router-dom";
 import * as Yup from "yup";
@@ -10,8 +10,10 @@ import {  Container } from "react-bootstrap";
 import ListGroup from 'react-bootstrap/ListGroup';
 
 import "../css/Schemes.css";
+import { AuthProvider } from "../App";
 
 const Schemes = () => {
+  const {authenticate}=useContext(AuthProvider)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [schemeData,setSchemeData]=useState([]);
   const showModal = () => {
@@ -85,9 +87,12 @@ const Schemes = () => {
   
   return (
     <div>
-      <Button type="primary" className="Addmp-btn" onClick={showModal}>
+      {
+        authenticate &&       <Button type="primary" className="Addmp-btn" onClick={showModal}>
         Add Scheme
       </Button>
+      }
+
       <Modal
         title="Add Scheme"
         open={isModalOpen}

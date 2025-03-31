@@ -2,8 +2,19 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "../css/Navbar.css";
+import { AuthProvider } from "../App";
+import { useContext } from "react";
+// import { useNavigate } from "react-router-dom";
 
 function NavScroll() {
+  // const navigate=useNavigate();
+  const {authenticate,setAuthenticate}=useContext(AuthProvider);
+  const handleSignout=()=>{
+    localStorage.removeItem("token");
+    setAuthenticate(false)
+  
+    
+  }
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -32,8 +43,11 @@ function NavScroll() {
             </Nav>
           
             <span className="d-flex justify-content-between">
-            <Nav.Link href="#action1" className="me-2">Signup</Nav.Link>
-            <Nav.Link href="/signin" className="me-2">Sign in</Nav.Link>
+              {
+                authenticate ? <button className="btn btn-dark" onClick={handleSignout}>Sign out</button> : <><Nav.Link href="/signup" className="me-2">Signup</Nav.Link>
+            <Nav.Link href="/signin" className="me-2">Sign in</Nav.Link></>
+              }
+            
             </span>
           </Navbar.Collapse>
         </Container>

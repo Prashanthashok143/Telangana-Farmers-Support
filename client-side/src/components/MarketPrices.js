@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Modal } from "antd";
 import { useState } from "react";
 import { Button,DatePicker } from "antd";
@@ -8,9 +8,11 @@ import axios from "axios";
 import Table from "react-bootstrap/Table";
 import moment from "moment";
 import "../css/MarketPrices.css";
+import { AuthProvider } from "../App";
 const {RangePicker}=DatePicker;
 
 const MarketPrices = () => {
+  const {authenticate}=useContext(AuthProvider)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [pricesData, setPricesData] = useState([]);
   const [search, setSearch] = useState("");
@@ -153,7 +155,10 @@ const handleDelete = async (_id) => {
           
         </div>
         {frequency ==="custom" && <RangePicker className="range" value={selectData} onChange={(values)=>setSelectData(values)}/>}
-        <Button type="primary" className="Addmp-btn" onClick={showModal}>Add Price</Button>
+        {
+          authenticate &&   <Button type="primary" className="Addmp-btn" onClick={showModal}>Add Price</Button>
+        }
+      
         
       </div>
       
@@ -211,11 +216,13 @@ const handleDelete = async (_id) => {
               </div>
             </div>
             <div>
-
             
-              <button className="btn btn-danger mt-2" type="submit">
-                Add
-              </button>
+               <button className="btn btn-danger mt-2" type="submit">
+              Add
+            </button>
+  
+            
+             
       
             </div>
           </Form>
@@ -229,7 +236,10 @@ const handleDelete = async (_id) => {
             <th>marketName</th>
             <th>pricePerQuintal</th>
             <th>Date</th>
-            <th colSpan="2">Actions</th>
+            {
+              authenticate &&  <th colSpan="2">Actions</th>
+            }
+           
           </tr>
         </thead>
         <tbody>
@@ -242,9 +252,15 @@ const handleDelete = async (_id) => {
                   <td>{marketName}</td>
                   <td>{pricePerQuintal}</td>
                   <td>{moment(date).format('DD-MM-YYYY')}</td>
-                  <td><button className="btn btn-success m-0" onClick={()=>handleEdit(_id)}>Edit</button></td>
-                  <td><button className="btn btn-danger m-0" onClick={() => handleDelete(_id)}>Delete</button></td>
-
+                  {
+                    authenticate && (
+                      <>
+                      <td><button className="btn btn-success m-0" onClick={()=>handleEdit(_id)}>Edit</button></td>
+                      <td><button className="btn btn-danger m-0" onClick={() => handleDelete(_id)}>Delete</button></td>
+                      </>
+                    )
+                  }
+                
                 </tr>
               )
             )

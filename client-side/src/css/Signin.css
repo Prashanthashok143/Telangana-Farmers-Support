@@ -1,10 +1,4 @@
 .loginPage {
-  background-image: url("../components/1507993-paddy.webp");
-  background-repeat: no-repeat;
-  background-position: 10% 40%;
-  background-size: cover;
-  backdrop-filter: blur(10px);
-  font-family: 'Arial', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,12 +8,11 @@
 }
 
 .Login {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: whitesmoke;
   border-radius: 10px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
   padding: 50px;
   box-sizing: border-box;
   max-width: 100%;
@@ -36,17 +29,16 @@
   border-radius: 5px;
   border: none;
   outline: none;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+  color:black;
   font-size: 16px;
 }
 
 .input-group input::placeholder {
-  color: #ccc;
+  color:black;
 }
 
 .input-group input:focus {
-  border-bottom-color: #fff;
+  border-bottom-color:black;
 }
 
 @media (max-width: 480px) {

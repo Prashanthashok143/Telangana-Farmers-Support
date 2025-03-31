@@ -1,66 +1,59 @@
-import React, {  useState } from 'react';
+import React, {  useContext, useState } from 'react';
 import {Button,} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import "../css/Signin.css"
 import InputGroup from 'react-bootstrap/InputGroup';
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-// import { useLocation, useNavigate } from 'react-router-dom';
-// import { UsernameProvider } from '../App';
+import axios from 'axios';
+import { AuthProvider } from '../App';
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
-  // const {setAuthenticate} =useContext(UsernameProvider)
-  //   const [validated, setValidated] = useState(false);
+  const navigate=useNavigate();
+  const {setAuthenticate}=useContext(AuthProvider)
+       const [validated, setValidated] = useState(false);
     const[showPassword,setShowPassword] = useState(false);
-  //   const navigate=useNavigate();
-  //   const {pathname}=useLocation();
-  //   useEffect(() => {
-  //     window.scrollTo(0, 0);
-  //   }, [pathname]);
-  
-   
+
     const[formData,setFormData]=useState({
-    email:"User123@gmail.com",
-    password:"User123#@password",
+    email:"",
+    password:"",
     })
     const handleChanges=(e)=>{
         const {name,value}=e.target;
         setFormData({...formData,[name]:value})
     }
-    // const handleSubmit=(e)=>{
-    //     e.preventDefault();
-    //     const{email,password}=formData;
-    //     if(email !== "User123@gmail.com"  || password !== "User123#@password"){
-    //       toast.error("Provide Correct Email and Password");
-    //       setValidated(true);
-    //     }else{
-    //       navigate("/movies")
-    //       localStorage.setItem("Username",email)
-    //       setAuthenticate(true)
-    //       setFormData({
-    //         email:"",
-    //         password:"",
-            
-    //       })
-    //       setValidated(false)
-    //     }
+
+    const handleSubmit=async(event)=>{
+      event.preventDefault();
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      const {email,password}=formData;
+      try{
+        const res=await axios.post("http://localhost:5000/signin",{email,password});
+        navigate("/")
+       localStorage.setItem("token",res.data.token)
+       setAuthenticate(true);
+       setFormData({
+        email:"",
+        password:"",
+       })
+
       
-    //     const form = e.currentTarget;
-    //     if (form.checkValidity() === false) {
-    //       e.preventDefault();
-    //       e.stopPropagation();
-    //     }
-    
-       
-      
-    // }
+      }
+      catch(err){
+        console.log(err)
+      }
+      setValidated(true);
+    }
   return (
     <div className="loginPage">
     
 
 
-      <Form className='Login' noValidate >
+      <Form className='Login' noValidate validated={validated} onSubmit={handleSubmit}>
       <h1>Login Page</h1>
       <div className="w-100 m-1">
       <Form.Label>Email Address</Form.Label> 
@@ -112,12 +105,8 @@ const Login = () => {
         <div className="w-100 mt-3 ms-1">
         <Button variant="success" type='submit' className='w-100'>Login</Button>
         </div>
-        <div className='text-start mt-1'>
-        <p>Email Address : User123@gmail.com 😎</p>
-        <p>Password :User123#@password</p>
-        </div>
+   
     </Form>  
-    {/* <ToastContainer /> */}
     </div>
   )
 }

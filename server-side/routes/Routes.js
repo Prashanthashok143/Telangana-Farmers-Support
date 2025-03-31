@@ -4,7 +4,9 @@ const cropsController=require("../controllers/cropsController");
 const {upload}=require("../controllers/cropsController");
 const {uploadScheme}=require("../controllers/schemeController")
 const marketController=require("../controllers/marketController");
-const schemaController=require("../controllers/schemeController")
+const schemaController=require("../controllers/schemeController");
+const {register}=require("../controllers/registerController")
+const {Signin}=require("../controllers/signinController");
 
 
 // cropCollection
@@ -22,5 +24,8 @@ router.delete("/deletePrice/:id",marketController.deletePrice)
 router.post("/addSchemes",uploadScheme.single("file"),schemaController.addScheme);
 router.get("/getSchemes",schemaController.getSchemes)
 module.exports=router;
-
+//register
+router.post("/register",register);
+//Signin
+router.post("/signin",Signin)
 module.exports=router; 

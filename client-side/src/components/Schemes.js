@@ -63,7 +63,7 @@ const Schemes = () => {
     // console.log([...formValues]); to see the data append in FormData
 
     try{
-   const data= await axios.post("http://localhost:5000/addSchemes",formValues);
+   const data= await axios.post("https://telangana-farmers-support-backend.onrender.com/addSchemes",formValues);
    console.log(data);
   
    form.resetForm();

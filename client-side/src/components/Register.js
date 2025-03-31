@@ -28,7 +28,7 @@ const Register = () => {
     const { name, email, password } = formData;
     if(email && password && name){
       try{
-        const res= await axios.post("http://localhost:5000/register", { name, email, password });
+        const res= await axios.post("https://telangana-farmers-support-backend.onrender.com/register", { name, email, password });
         console.log(name,email,password)
         setFormData({name:"",email:"",password:""})
         console.log(res)

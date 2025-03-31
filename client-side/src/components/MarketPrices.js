@@ -58,12 +58,12 @@ const MarketPrices = () => {
 
     try {
       if(updateId!==-1){
-        await axios.put(`http://localhost:5000/updatePrice/${updateId}`, values);
+        await axios.put(`https://telangana-farmers-support-backend.onrender.com/updatePrice/${updateId}`, values);
        setUppdateId(-1);
        setEditData(null);
       }else{
         await axios.post(
-          "http://localhost:5000/addMarketPrice",
+          "https://telangana-farmers-support-backend.onrender.com/addMarketPrice",
           values
         );
       }
@@ -79,7 +79,7 @@ const MarketPrices = () => {
   const getPrices = async (search,district,frequency,selectData) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/marketPrices?search=${search}&district=${district}&frequency=${frequency}&range=${selectData}`
+        `https://telangana-farmers-support-backend.onrender.com/marketPrices?search=${search}&district=${district}&frequency=${frequency}&range=${selectData}`
       );
       // console.log(response.data);
       setPricesData(response.data);
@@ -93,7 +93,7 @@ const MarketPrices = () => {
   }, [search,district,frequency,selectData]);
 
 const handleEdit=async(_id)=>{
-const response=  await axios.get(`http://localhost:5000/marketPrices/${_id}`);
+const response=  await axios.get(`https://telangana-farmers-support-backend.onrender.com/marketPrices/${_id}`);
 const date=moment(response.data.date).format('YYYY-MM-DD')
 const {cropName,marketName,pricePerQuintal}=response.data;
 setEditData({ cropName, marketName, pricePerQuintal,date });
@@ -104,7 +104,7 @@ console.log(response.data.cropName)
 }
 const handleDelete = async (_id) => {
   try {
-    await axios.delete(`http://localhost:5000/deletePrice/${_id}`);
+    await axios.delete(`https://telangana-farmers-support-backend.onrender.com/deletePrice/${_id}`);
     getPrices(search, district, frequency, selectData); 
   } catch (err) {
     console.error("Error deleting price:", err);

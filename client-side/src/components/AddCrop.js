@@ -55,7 +55,7 @@ const AddCrop = () => {
     // 4. Handling Mixed Data
 
     try {
-      const res = await axios.post("http://localhost:5000/addCrop", formData);
+      const res = await axios.post("https://telangana-farmers-support-backend.onrender.com/addCrop", formData);
       console.log(res);
       console.log(formData);
       form.resetForm();

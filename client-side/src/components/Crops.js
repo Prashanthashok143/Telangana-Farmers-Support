@@ -16,7 +16,7 @@ const Crops = () => {
   const cropsData = async () => {
     setLoad(true);
     try {
-      const {data} = await axios.get("http://localhost:5000/getCrop");
+      const {data} = await axios.get("https://telangana-farmers-support-backend.onrender.com/getCrop");
       if(data.length>0){
         setLoad(false)
         setData(data)

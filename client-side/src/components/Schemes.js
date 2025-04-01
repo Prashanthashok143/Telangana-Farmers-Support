@@ -73,7 +73,7 @@ const Schemes = () => {
   }
   const getSchemes=async()=>{
    try{
-    const res=await axios.get("http://localhost:5000/getSchemes");
+    const res=await axios.get("https://telangana-farmers-support-backend.onrender.com/getSchemes");
     setSchemeData(res.data);
 
    }catch(err){

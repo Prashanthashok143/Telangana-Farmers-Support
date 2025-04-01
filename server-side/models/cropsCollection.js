@@ -18,6 +18,6 @@ const cropsSchema=new mongoose.Schema({
 
 })
 
-const cropsModel=mongoose.model("cropsCollection",cropsSchema);
+const cropsModel = mongoose.model("CropsCollection", cropsSchema, "cropscollections");
 
 module.exports=cropsModel;

@@ -17,7 +17,7 @@ exports.addCrop = async (req, res) => {
   const today = new Date().toISOString().split('T')[0];
   try {
     const { name,type,region,pricePerQuintal,season,soilType,waterRequirement,fertilizerTips,demand,additionalNotes} = req.body;
-    const URL = `http://localhost:5000/uploads/${req.file.filename}`;
+    const URL = `https://telangana-farmers-support-backend.onrender.com/uploads/${req.file.filename}`;
     const newCrop = new cropsModel({
       name: name,
       type:type,

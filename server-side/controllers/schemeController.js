@@ -36,7 +36,11 @@ console.log(newScheme)
 exports.getSchemes = async (req, res) => {
   try {
     const schemeData = await schemeModel.find();
-    res.send(schemeData);  // Sending the fetched data
+    console.log("retrieved data",schemeData);
+    if(schemeData.length==0){
+      console.log("No data is found in schemes collection")
+    }
+    res.send(schemeData);  // Sending the fetched data;
   } catch (error) {
     console.error('Error fetching schemes:', error);
     res.status(500).send({ error: 'Internal Server Error' });  // Error handling

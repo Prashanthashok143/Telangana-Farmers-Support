@@ -9,5 +9,5 @@ const marketPriceSchema=new mongoose.Schema({
 });
 
 //Model
-const marketPriceModel = mongoose.model("MarketPrice", marketPriceSchema, "marketprices");
+const marketPriceModel = mongoose.model("marketprices", marketPriceSchema);
 module.exports=marketPriceModel;

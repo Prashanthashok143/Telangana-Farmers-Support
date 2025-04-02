@@ -13,5 +13,5 @@ const schemeSchema=new mongoose.Schema({
     date:Date,   
 })
 
-const schemeModel = mongoose.model("Scheme", schemeSchema, "schemes");
+const schemeModel = mongoose.model("schemes", schemeSchema,);
 module.exports=schemeModel;

@@ -35,6 +35,7 @@ console.log(newScheme)
 
 exports.getSchemes = async (req, res) => {
   try {
+    console.log("Received request at /getSchemes");
     const schemeData = await schemeModel.find();
     console.log("retrieved data",schemeData);
     if(schemeData.length==0){

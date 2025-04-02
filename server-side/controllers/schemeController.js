@@ -14,7 +14,7 @@ exports.uploadScheme = multer({ storage });
 
 exports.addScheme=async(req,res)=>{
   const{name,department,description,eligibility,financialSupport,applicationProcess,frequency,officialWebsite,date} =req.body;
-  const URL=`http://localhost:5000/uploadScheme/${req.file.filename}`;
+  const URL=`https://telangana-farmers-support-backend.onrender.com/uploadScheme/${req.file.filename}`;
   const newScheme=new schemeModel({
   name:name,
   department:department,
